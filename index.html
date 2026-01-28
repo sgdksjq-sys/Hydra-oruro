@@ -1,0 +1,102 @@
+Index · HTML materia diseño web UPDS
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydra Oruro - Soluciones Tecnológicas</title>
+<link rel="stylesheet" href="leo.css">
+</head>
+<body>
+
+<header id="h1">
+<div class="d1">
+<img src="logo1.png" alt="Hydra Logo">
+<span>Hydra Oruro</span>
+</div>
+<nav>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#proyectos">Proyectos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="inicio" class="s1">
+<img src="logo1.png" alt="Banner Hydra">
+<div class="d2">
+<h1>Conectando tu mundo,<br>asegurando tu futuro</h1>
+<p>Hydra Oruro - Soluciones Tecnológicas y Redes</p>
+<a href="#contacto" class="b1">Contáctanos</a>
+</div>
+</section>
+
+<section id="nosotros" class="s2">
+<h2 class="f1">Nosotros</h2>
+<div class="d3 f1">
+<img src="1.png" alt="Hydra Logo">
+<p>Hydra Oruro ofrece soluciones tecnológicas innovadoras, incluyendo instalación de redes, seguridad digital, soporte técnico y desarrollo web para empresas y clientes locales, con un enfoque profesional y moderno que garantiza resultados excepcionales.</p>
+</div>
+</section>
+
+<section id="servicios" class="s2">
+<h2 class="f1">Servicios</h2>
+<div class="d4">
+<div class="c1 f1">
+<img src="2.png" alt="Redes">
+<h3>Redes LAN/Wi-Fi</h3>
+<p>Instalación, configuración y optimización de redes empresariales y domésticas con la más alta calidad.</p>
+</div>
+<div class="c1 f1">
+<img src="3.png" alt="Seguridad">
+<h3>Seguridad Digital y CCTV</h3>
+<p>Protección de tus instalaciones con tecnología de última generación y monitoreo 24/7.</p>
+</div>
+<div class="c1 f1">
+<img src="4.png" alt="Soporte">
+<h3>Soporte Técnico</h3>
+<p>Soluciones inmediatas para cualquier problema tecnológico con atención personalizada.</p>
+</div>
+</div>
+</section>
+
+<section id="proyectos" class="s2">
+<h2 class="f1">Proyectos Recientes</h2>
+<div class="d5">
+<div class="p1 f1">
+<img src="wifi.png" alt="Proyecto 1">
+<p>Instalación de red Wi-Fi empresarial en Colegio Nacional de Oruro</p>
+<a href="pdf1.pdf" download="Proyecto_WiFi_Colegio_Nacional.pdf" class="pdf-btn">📥 Descargar PDF</a>
+</div>
+<div class="p1 f1">
+<img src="otro.png" alt="Proyecto 2">
+<p>Sistema de CCTV inteligente para tienda local con monitoreo remoto</p>
+<a href="pdf2.pdf" download="Proyecto_CCTV_Tienda.pdf" class="pdf-btn">📥 Descargar PDF</a>
+</div>
+</div>
+</section>
+
+<section id="contacto" class="s2">
+<h2 class="f1">Contacto</h2>
+<form id="cf1" class="f1">
+<input type="text" name="nombre" placeholder="Tu nombre" required>
+<input type="email" name="correo" placeholder="Tu correo electrónico" required>
+<textarea name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+<button type="submit">Enviar Mensaje</button>
+</form>
+<div id="r1"></div>
+</section>
+
+<footer>
+<p>© 2026 Hydra Oruro | Todos los derechos reservados | Innovación y Tecnología</p>
+</footer>
+
+<script>
+const h1=document.getElementById('h1');window.addEventListener('scroll',()=>{if(window.scrollY>100){h1.classList.add('scrolled');}else{h1.classList.remove('scrolled');}});const observerOptions={threshold:0.1,rootMargin:'0px 0px -100px 0px'};const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,index)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.style.animationDelay=`${index*0.1}s`;entry.target.classList.add('f1');},index*100);observer.unobserve(entry.target);}});},observerOptions);document.querySelectorAll('.f1').forEach(el=>{observer.observe(el);});document.getElementById('cf1').addEventListener('submit',function(e){e.preventDefault();const nombre=this.nombre.value;const correo=this.correo.value;const mensaje=this.mensaje.value;const mensajes=JSON.parse(localStorage.getItem('mensajesHydra')||'[]');mensajes.push({nombre,correo,mensaje,fecha:new Date().toLocaleString()});localStorage.setItem('mensajesHydra',JSON.stringify(mensajes));const resultado=document.getElementById('r1');resultado.innerHTML=`<p style="color:#00ff00; background: rgba(0, 255, 0, 0.1); padding: 15px; border-radius: 10px; border: 1px solid #00ff00;">✓ ¡Gracias ${nombre}! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.</p>`;this.reset();setTimeout(()=>{resultado.innerHTML='';},5000);console.log('Mensajes guardados:',mensajes);});
+</script>
+
+</body>
+</html>
